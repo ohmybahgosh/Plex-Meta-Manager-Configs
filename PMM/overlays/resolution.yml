@@ -29,6 +29,8 @@
 #          use_1080p: true                                  #
 #          # Use the 720P overlay                           #
 #          use_720p: true                                   #
+#          # Use the 576P overlay                           #
+#          use_576p: true                                   #
 #          # Use the 480P overlay                           #
 #          use_480p: true                                   #
 #          # Use the DV overlay                             #
@@ -50,6 +52,7 @@ templates:
       vertical_offset: 15
       vertical_align: top
     collection_level: <<overlay_level>>
+    ignore_blank_results: true
     allowed_library_types:
       - <<use_<<opt1>>>>
       - <<use_<<opt2>>>>
@@ -92,7 +95,7 @@ overlays:
   4K-DV:
     template:
       - name: Resolution
-        weight: 120
+        weight: 150
         opt1: 4k
         opt2: dv
     plex_search:
@@ -104,7 +107,7 @@ overlays:
   4K-HDR:
     template:
       - name: Resolution
-        weight: 110
+        weight: 140
         opt1: 4k
         opt2: hdr
     plex_search:
@@ -115,7 +118,7 @@ overlays:
   4K:
     template:
       - name: Resolution
-        weight: 100
+        weight: 130
         opt1: 4k
     plex_search:
       any:
@@ -124,7 +127,7 @@ overlays:
   1080P-DV:
     template:
       - name: Resolution
-        weight: 90
+        weight: 120
         opt1: 1080p
         opt2: dv
     plex_search:
@@ -136,7 +139,7 @@ overlays:
   1080P-HDR:
     template:
       - name: Resolution
-        weight: 80
+        weight: 110
         opt1: 1080p
         opt2: hdr
     plex_search:
@@ -147,7 +150,7 @@ overlays:
   1080P:
     template:
       - name: Resolution
-        weight: 70
+        weight: 100
         opt1: 1080p
     plex_search:
       any:
@@ -156,7 +159,7 @@ overlays:
   720P-DV:
     template:
       - name: Resolution
-        weight: 60
+        weight: 90
         opt1: 720p
         opt2: dv
     plex_search:
@@ -168,7 +171,7 @@ overlays:
   720P-HDR:
     template:
       - name: Resolution
-        weight: 50
+        weight: 80
         opt1: 720p
         opt2: hdr
     plex_search:
@@ -179,11 +182,43 @@ overlays:
   720P:
     template:
       - name: Resolution
-        weight: 40
+        weight: 70
         opt1: 720p
     plex_search:
       any:
         resolution.regex: '(?i)720|hd'
+
+  576P-DV:
+    template:
+      - name: Resolution
+        weight: 60
+        opt1: 576p
+        opt2: dv
+    plex_search:
+      all:
+        resolution.regex: '(?i)576'
+    filters:
+      has_dolby_vision: true
+
+  576P-HDR:
+    template:
+      - name: Resolution
+        weight: 50
+        opt1: 576p
+        opt2: hdr
+    plex_search:
+      all:
+        resolution.regex: '(?i)576'
+        hdr: true
+
+  576P:
+    template:
+      - name: Resolution
+        weight: 40
+        opt1: 576p
+    plex_search:
+      any:
+        resolution.regex: '(?i)576'
 
   480P-DV:
     template:

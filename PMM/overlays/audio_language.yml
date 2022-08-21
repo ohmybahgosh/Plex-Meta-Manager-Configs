@@ -19,7 +19,7 @@
 #          # Set the horizontal align for the overlay       #
 #          horizontal_align: center                         #
 #          # Set the vertical offset for the overlay        #
-#          vertical_offset: 15                              #
+#          vertical_offset: 30                              #
 #          # Set the vertical align for the overlay         #
 #          vertical_align: bottom                           #
 #############################################################
@@ -35,6 +35,7 @@ templates:
       vertical_offset: 30
       vertical_align: bottom
     collection_level: <<overlay_level>>
+    ignore_blank_results: true
     overlay:
       name: <<overlay_name>>
       git: PMM/overlays/images/<<overlay>>

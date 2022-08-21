@@ -10,6 +10,9 @@
 #        template_variables:                                #
 #          # Turn the separator collection on/off           #
 #          use_separator: true                              #
+#          # Separator style (red, blue, green, gray,       #
+#              purple, stb, orig)                           #
+#          sep_style: orig                                  #
 #          # Sets how the collection is sorted              #
 #          sort_by: release.desc                            #
 #          # Sets the collection mode of the collection     #
@@ -63,7 +66,7 @@
 #          visible_shared_disney: true                      #
 #                                                           #
 #          # Turn the hayu collection on/off                #
-#          use_haya: true                                   #
+#          use_hayu: true                                   #
 #          # Set visible_library for hayu                   #
 #          visible_library_hayu: true                       #
 #          # Set visible_home for hayu                      #
@@ -157,6 +160,7 @@ templates:
     visible_library: <<visible_library_<<key>>>>
     visible_home: <<visible_home_<<key>>>>
     visible_shared: <<visible_shared_<<key>>>>
+    ignore_blank_results: true
     cache_builders: 1
     smart_label: <<sort_by>>
     sync_mode: sync
